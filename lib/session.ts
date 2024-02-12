@@ -5,7 +5,6 @@ import GoogleProvider from "next-auth/providers/google";
 import jsonwebtoken from 'jsonwebtoken'
 import { JWT } from "next-auth/jwt";
 
-// import { createUser, getUser } from "./actions";
 import { SessionInterface, UserProfile } from "@/common.types";
 import { createUser, getUser } from "./actions";
 
@@ -41,7 +40,7 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async session({ session }) {
       const email = session?.user?.email as string;
-        return session;
+        // return session;
       try { 
         const data = await getUser(email) as { user?: UserProfile }
 
