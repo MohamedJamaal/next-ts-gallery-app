@@ -4,7 +4,7 @@ type Props = {
   title: string;
   state: string;
   placeholder: string;
-  isTextArea: boolean;
+  isTextArea?: boolean;
   setState: (value: string) => void;
 };
 
