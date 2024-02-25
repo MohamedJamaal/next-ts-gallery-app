@@ -12,14 +12,14 @@ export const NavLinks = [
     "Full-Stack",
     "Mobile",
     "UI/UX",
-    "Game Dev",
-    "DevOps",
-    "Data Science",
-    "Machine Learning",
-    "Cybersecurity",
-    "Blockchain",
-    "E-commerce",
-    "Chatbots"
+    // "Game Dev",
+    // "DevOps",
+    // "Data Science",
+    // "Machine Learning",
+    // "Cybersecurity",
+    // "Blockchain",
+    // "E-commerce",
+    // "Chatbots"
   ]
   
   export const footerLinks = [

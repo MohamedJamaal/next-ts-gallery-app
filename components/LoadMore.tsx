@@ -38,7 +38,7 @@ const LoadMore = ({
       {hasPreviousPage && (
         <Button
           title="First Page"
-          handleClick={() => handleNavigation("first")}
+          handleClick={() => handleNavigation("prev")}
         />
       )}
       {hasNextPage && (
