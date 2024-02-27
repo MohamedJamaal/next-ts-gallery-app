@@ -5,8 +5,8 @@ import GoogleProvider from "next-auth/providers/google";
 import jsonwebtoken from 'jsonwebtoken'
 import { JWT } from "next-auth/jwt";
 
-import { SessionInterface, UserProfile } from "@/common.types";
 import { createUser, getUser } from "./actions";
+import { SessionInterface, UserProfile } from "@/common.types";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -40,7 +40,7 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async session({ session }) {
       const email = session?.user?.email as string;
-        // return session;
+
       try { 
         const data = await getUser(email) as { user?: UserProfile }
 
@@ -54,7 +54,7 @@ export const authOptions: NextAuthOptions = {
 
         return newSession;
       } catch (error: any) {
-        console.log("Error retrieving user data: ", error.message);
+        console.error("Error retrieving user data: ", error.message);
         return session;
       }
     },
@@ -62,10 +62,8 @@ export const authOptions: NextAuthOptions = {
       user: AdapterUser | User
     }) {
       try {
-        // get user if exists
         const userExists = await getUser(user?.email as string) as { user?: UserProfile }
         
-        // create user if not exists
         if (!userExists.user) {
           await createUser(user.name as string, user.email as string, user.image as string)
         }
